@@ -1,12 +1,14 @@
 {
-  "name": "MY TOOLS",
+  "name": "My Tools",
   "version": "1.0.0",
-  "description": "Telegram Tools bot",
-  "main": "MyTools.js",
+  "main": "My Tools.js",
   "scripts": {
     "start": "node MyTools.js"
-  }, 
+  },
   "dependencies": {
-    "node-telegram-bot-api": "^0.64.0"
+    "axios": "^1.6.0",
+    "express": "^4.18.2",
+    "node-telegram-bot-api": "^0.64.0",
+    "tesseract.js": "^5.0.0"
   }
 }
