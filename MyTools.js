@@ -23,7 +23,7 @@ bot.onText(/\/start(?: (.+))?/, (msg, match) => {
 🖼️ Edit images
 📄 PDF tools
 🤖 AI tools
-💸 Earn rewards
+
 
 👇 Choose an option below`,
     mainMenu()
@@ -116,25 +116,7 @@ bot.on("callback_query", (query) => {
     bot.sendMessage(chatId, "✍️ Send your topic");
   }
 
-  // 👤 PROFILE
-  else if (data === "profile") {
-    const user = users[userId];
-    bot.sendMessage(chatId,
-      `👤 Profile
-
-🆔 ID: ${userId}
-💰 Coins: ${user.coins}
-👥 Referrals: ${user.referrals}`,
-      {
-        reply_markup: {
-          inline_keyboard: [
-            [{ text: "⬅️ Back", callback_data: "back_home" }]
-          ]
-        }
-      }
-    );
-  }
-
+  
   // BACK
   else if (data === "back_home") {
     bot.sendMessage(chatId, "🏠 Main Menu", mainMenu());
