@@ -18,14 +18,11 @@ bot.onText(/\/start(?: (.+))?/, (msg, match) => {
   bot.sendMessage(chatId,
     `🚀 Welcome to ToolHub Bot
 
-⚡ All-in-one tools:
+⚡ All-in-one tools Bot:
 📥 Download videos
 🖼️ Edit images
 📄 PDF tools
-🤖 AI tools
-
-
-👇 Choose an option below`,
+🤖 AI tools`,
     mainMenu()
   );
 });
