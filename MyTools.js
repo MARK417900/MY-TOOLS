@@ -35,12 +35,8 @@ function mainMenu() {
   return {
     reply_markup: {
       inline_keyboard: [
-        [{ text: "📥 Download Tools", callback_data: "download_tools" }],
-        [{ text: "🖼️ Image Tools", callback_data: "image_tools" }],
-        [{ text: "📄 PDF Tools", callback_data: "pdf_tools" }],
-        [{ text: "🤖 AI Tools", callback_data: "ai_tools" }],
-        [{ text: "💸 Earn Money", callback_data: "earn_money" }],
-        [{ text: "🎁 Rewards", callback_data: "rewards" }],
+        [{ text: "📥 Download Tools", callback_data: "download_tools" },{ text: "🖼️ Image Tools", callback_data: "image_tools" }],
+        [{ text: "📄 PDF Tools", callback_data: "pdf_tools" },{ text: "🤖 AI Tools", callback_data: "ai_tools" }],
         [{ text: "👤 Profile", callback_data: "profile" }]
       ]
     }
@@ -118,58 +114,6 @@ bot.on("callback_query", (query) => {
 
   else if (data === "ai_text") {
     bot.sendMessage(chatId, "✍️ Send your topic");
-  }
-
-  // 💸 EARNING
-  else if (data === "earn_money") {
-    bot.sendMessage(chatId,
-      `💸 Earn Money Section
-
-🔥 Daily Methods
-💼 Freelance Gigs`,
-      {
-        reply_markup: {
-          inline_keyboard: [
-            [{ text: "⬅️ Back", callback_data: "back_home" }]
-          ]
-        }
-      }
-    );
-  }
-
-  // 🎁 REWARDS
-  else if (data === "rewards") {
-    const user = users[userId];
-    bot.sendMessage(chatId,
-      `🎁 Rewards
-
-💰 Coins: ${user.coins}
-👥 Referrals: ${user.referrals}`,
-      {
-        reply_markup: {
-          inline_keyboard: [
-            [{ text: "Daily Check-in", callback_data: "daily" }],
-            [{ text: "Refer & Earn", callback_data: "refer" }],
-            [{ text: "⬅️ Back", callback_data: "back_home" }]
-          ]
-        }
-      }
-    );
-  }
-
-  // DAILY REWARD
-  else if (data === "daily") {
-    users[userId].coins += 10;
-    bot.sendMessage(chatId, "✅ You earned 10 coins today!");
-  }
-
-  // REFER
-  else if (data === "refer") {
-    bot.sendMessage(chatId,
-      `👥 Invite & earn!
-
-https://t.me/YOUR_BOT_USERNAME?start=${userId}`
-    );
   }
 
   // 👤 PROFILE
